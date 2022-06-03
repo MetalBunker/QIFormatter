@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using QIFormatterGUI.AutoCompleter;
 
 namespace QIFormatterGUI
 {
@@ -34,6 +35,7 @@ namespace QIFormatterGUI
                 QifDom targetFile = new QifDom();
                 BasicTransaction trans = null;
                 string[] recordValues = null;
+                IAutoCompleter autoCompleter = new AutoCompleterBase();
 
                 foreach (var record in txtData.Lines)
                 {
@@ -44,20 +46,24 @@ namespace QIFormatterGUI
                     trans.Date      = DateTime.ParseExact(recordValues[0], "yyyy-MM-dd", null);
                     trans.Payee     = recordValues[1];
                     trans.Memo      = recordValues[2];
-                    trans.Amount    = decimal.Parse(recordValues[3], CultureInfo.InvariantCulture) * -1; //Multiplico por -1 para que quede como un gasto desde la cuenta
+                    //Multiplico por -1 para que quede como un gasto desde la cuenta
+                    trans.Amount    = decimal.Parse(recordValues[3], CultureInfo.InvariantCulture) * -1; 
+
+                    autoCompleter.AttemptAutoComplete(trans);
 
                     targetFile.CashTransactions.Add(trans);
                 }
 
                 targetFile.Export(txtOutputFilePath.Text, Encoding.Default);
 
-                MessageBox.Show("Saved! Cantidad registros guardados: " + targetFile.CashTransactions.Count, "Éxito!");
+                var msgText = autoCompleter.GetAutoCompleteSummary();
+
+                MessageBox.Show(msgText, "Éxito!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Voló todo al carajo: " + ex.Message, "Boom!");
+                MessageBox.Show("Voló todo al carajo: " + ex.Message, "Click click Boom!");
             }
-
         }
 
         private void btnClear_Click(object sender, EventArgs e)

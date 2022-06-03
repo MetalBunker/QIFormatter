@@ -53,6 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoCompleter\AttemptAutoCompleteResult.cs" />
+    <Compile Include="AutoCompleter\AutoCompleterBase.cs" />
+    <Compile Include="AutoCompleter\IAutoCompleter.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
