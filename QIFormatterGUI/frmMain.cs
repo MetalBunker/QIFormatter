@@ -51,7 +51,7 @@ namespace QIFormatterGUI
 
                 targetFile.Export(txtOutputFilePath.Text, Encoding.Default);
 
-                MessageBox.Show("Saved! Cantidad registros guardados: " + targetFile.CashTransactions.Count);
+                MessageBox.Show("Saved! Cantidad registros guardados: " + targetFile.CashTransactions.Count, "Éxito!");
             }
             catch (Exception ex)
             {

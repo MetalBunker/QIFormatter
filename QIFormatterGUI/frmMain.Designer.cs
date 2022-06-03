@@ -116,7 +116,7 @@
             this.btnGenerateQIF.Name = "btnGenerateQIF";
             this.btnGenerateQIF.Size = new System.Drawing.Size(105, 36);
             this.btnGenerateQIF.TabIndex = 3;
-            this.btnGenerateQIF.Text = "Generate QIF";
+            this.btnGenerateQIF.Text = "&Generate QIF";
             this.btnGenerateQIF.UseVisualStyleBackColor = true;
             this.btnGenerateQIF.Click += new System.EventHandler(this.btnGenerateQIF_Click);
             // 
@@ -140,7 +140,7 @@
             this.btnClear.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(38, 17);
-            this.btnClear.Text = "Clear";
+            this.btnClear.Text = "&Clear";
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnPaste
@@ -150,7 +150,7 @@
             this.btnPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPaste.Name = "btnPaste";
             this.btnPaste.Size = new System.Drawing.Size(39, 17);
-            this.btnPaste.Text = "Paste";
+            this.btnPaste.Text = "&Paste";
             this.btnPaste.Click += new System.EventHandler(this.btnPaste_Click);
             // 
             // lblTransactionsCount
